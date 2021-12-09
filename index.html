@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="shortcut icon" href="#" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <main>
+      <section class="player player--0 player--active">
+        <h2 class="name" id="name--0">Player 1:</h2>
+        <h2 class="name" id="name--X">X</h2>
+        <p class="score" id="score--0">43</p>
+      </section>
+
+      <h2 class="game--status"></h2>
+      <div class="grid">
+        <div data-cell-index="0" class="cell">asg</div>
+        <div data-cell-index="1" class="cell">asg</div>
+        <div data-cell-index="2" class="cell">asg</div>
+        <div data-cell-index="3" class="cell"></div>
+        <div data-cell-index="4" class="cell"></div>
+        <div data-cell-index="5" class="cell"></div>
+        <div data-cell-index="6" class="cell"></div>
+        <div data-cell-index="7" class="cell"></div>
+        <div data-cell-index="8" class="cell"></div>
+      </div>
+
+      <section class="player player--1">
+        <h2 class="name" id="name--1">Player 2:</h2>
+        <h2 class="name" id="name--O">O</h2>
+        <p class="score" id="score--1">24</p>
+      </section>
+
+      <button class="btn btn--reset">♻ Reset game</button>
+      <button class="btn btn--newRound">🔄 New round</button>
+    </main>
+    <script src="script/script.js"></script>
+  </body>
+</html>
