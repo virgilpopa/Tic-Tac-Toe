@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap");
 
 * {
   margin: 0;
@@ -12,11 +13,11 @@ html {
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  font-weight: 400;
+  font-family: "Press Start 2P", sans-serif;
   height: 100vh;
-  color: #333;
-  background-image: linear-gradient(to top left, #215a3e 0%, #b2ffaf 100%);
+  color: #000000c2;
+
+  background-color: #000000c2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +28,7 @@ main {
   position: relative;
   width: 90%;
   height: 90%;
-  background-color: rgba(255, 255, 255, 0.123);
+  background-image: linear-gradient(to top left, #215a3e 0%, #b2ffaf 100%);
   backdrop-filter: blur(200px);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
@@ -47,47 +48,42 @@ main {
 /* ELEMENTS */
 .name {
   position: relative;
+  color: #61c25d;
   font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   word-spacing: 2px;
-  font-weight: 300;
-  margin-bottom: 1rem;
+  margin-top: 1.6em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 #name--1 {
   text-align: right;
-}
-#name--X {
-  padding-left: 12%;
-}
-
-#name--O {
-  padding-left: 82%;
+  color: #194b47;
 }
 
 .score {
-  font-size: 8rem;
-  font-weight: 300;
-  color: #05490a;
-  margin-bottom: auto;
-  margin-top: 10%;
+  font-family: "Coming Soon", cursive;
+  font-size: 20rem;
+  color: #61c25d;
+  margin-left: 20%;
+  margin-top: 22%;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 #score--1 {
+  color: #194b47;
   text-align: right;
+  margin-right: 20%;
 }
 
 .player--active {
   background-color: rgba(255, 255, 255, 0.747);
 }
-.player--active .name {
-  font-weight: 700;
-}
-.player--active .score {
-  font-weight: 400;
-}
-
-.player--active .current {
-  opacity: 1;
+.player--active .name span {
+  padding: 10px;
+  border: 3px solid #000;
+  border-radius: 10px;
 }
 
 .grid {
@@ -101,42 +97,39 @@ main {
 }
 
 .cell {
-  font-family: "Permanent Marker", cursive;
-  color: #fff;
+  font-family: "Coming Soon", cursive;
+  font-size: 12em;
+  font-weight: 600;
   width: 180px;
   height: 180px;
   box-shadow: #333;
-  border: 3px solid #000000;
+  border: 3px solid #000000c2;
   cursor: pointer;
-  line-height: 100px;
-  font-size: 120px;
   text-align: center;
-  padding-top: 20%;
-  background-color: #fff;
+  padding: 5%;
+  background-color: #e9e9e9;
 }
 
 /* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
   position: absolute;
-  left: 50%;
+  left: 40%;
   transform: translateX(-50%);
   color: #444;
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   cursor: pointer;
-  font-weight: 400;
-
+  width: 250px;
   border-radius: 2rem;
   transition: all 0.2s;
 
-  background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
 
-  padding: 0.7rem 2.5rem;
+  padding: 0.7rem 2rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
@@ -156,7 +149,8 @@ main {
   outline: none;
 }
 .btn--newRound {
-  top: 10rem;
+  left: 60%;
+  top: 90%;
 }
 .btn--reset {
   top: 90%;
@@ -166,13 +160,36 @@ main {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 1rem;
-  font-family: inherit;
-  font-size: 5rem;
-  text-decoration: underline 4px;
+  top: 2rem;
+  font-size: 2rem;
+  text-decoration: underline 3px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .game--status {
-    font-size: 3rem;
+    font-size: 1.5rem;
+  }
+  .name {
+    font-size: 2.5rem;
+  }
+  .score {
+    margin-left: 0;
+    font-size: 10rem;
+    text-align: center;
+  }
+  #score--1 {
+    margin-right: 0;
+    text-align: center;
+  }
+  .cell {
+    width: 90px;
+    height: 90px;
+    font-size: 5rem;
+    line-height: 50px;
+  }
+  .btn {
+    font-size: 1rem;
+  }
+  .btn::first-letter {
+    font-size: 1.5rem;
   }
 }
