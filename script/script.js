@@ -10,7 +10,9 @@ const btnNewRound = document.querySelector(".btn--newRound");
 const statusDisplay = document.querySelector(".game--status");
 const cellSelection = document.querySelectorAll(".cell");
 
-let scores, activePlayer, playing;
+let scores,
+  activePlayer = 0,
+  playing;
 
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
@@ -26,6 +28,18 @@ const winningConditions = [
 ];
 
 //
+const randomPlayer = function () {
+  Math.random() < 0.5 ? (activePlayer = 1) : (activePlayer = 0);
+
+  if (activePlayer === 1) {
+    player0El.classList.remove("player--active");
+    player1El.classList.add("player--active");
+  } else {
+    player1El.classList.remove("player--active");
+    player0El.classList.add("player--active");
+  }
+};
+
 const winningMessage = () =>
   (statusDisplay.textContent = `PLAYER ${
     activePlayer + 1
@@ -41,15 +55,14 @@ const init = function () {
   score1El.textContent = 0;
 
   scores = [0, 0];
-  activePlayer = 0;
   playing = true;
   gameState = ["", "", "", "", "", "", "", "", ""];
 
   score0El.textContent = 0;
   score1El.textContent = 0;
 
-  player1El.classList.remove("player--active");
-  player0El.classList.add("player--active");
+  randomPlayer();
+
   currentPlayerTurn();
   cellSelection.forEach((cell) => (cell.textContent = ""));
 };
@@ -58,7 +71,7 @@ init();
 function handleCellPlayed(clickedCell, clickedCellIndex) {
   gameState[clickedCellIndex] = activePlayer;
   clickedCell.textContent = activePlayer ? "O" : "X";
-  clickedCell.style.color = activePlayer ? "#215a55" : "#12ffaf";
+  clickedCell.style.color = activePlayer ? "#194b47" : "#61c25d";
 }
 
 function handleResultValidation() {
@@ -96,11 +109,8 @@ function handleResultValidation() {
 
 btnNewRound.addEventListener("click", function () {
   if (scores[activePlayer] < 5) {
-    activePlayer = 0;
     playing = true;
     gameState = ["", "", "", "", "", "", "", "", ""];
-    player1El.classList.remove("player--active");
-    player0El.classList.add("player--active");
 
     currentPlayerTurn();
     cellSelection.forEach((cell) => {
@@ -108,6 +118,7 @@ btnNewRound.addEventListener("click", function () {
     });
   } else {
     gameWon();
+    setTimeout(init, 2000);
   }
 });
 
